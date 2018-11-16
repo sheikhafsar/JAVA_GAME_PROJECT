@@ -11,12 +11,10 @@ import javax.swing.JPanel;
 
 public class Game extends JPanel{
 	
-	int x = 0;
-	int y = 0;
+	Ball ball = new Ball(this);
 
 	private void moveBall() {
-		x = x + 1;
-		y = y + 1;
+		ball.move();
 	}
 	
 	@Override
@@ -25,7 +23,7 @@ public class Game extends JPanel{
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 				RenderingHints.VALUE_ANTIALIAS_ON);
-		g2d.fillOval(x, y, 30, 30);
+		ball.paint(g2d);
 	}
 
 	public static void main(String[] args) throws InterruptedException {
