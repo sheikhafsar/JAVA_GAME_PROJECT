@@ -4,6 +4,8 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 
+import Audio.Sound;
+
 public class Racquet {
 
 	private static final int Y = 330;
@@ -31,6 +33,7 @@ public class Racquet {
 	}
 
 	public void keyPressed(KeyEvent e) {
+		Sound.KEYTONE.play();
 		if (e.getKeyCode() == KeyEvent.VK_LEFT)
 			xa = -1;
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT)

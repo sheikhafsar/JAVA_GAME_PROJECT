@@ -13,6 +13,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import Audio.Sound;
+
 
 
 public class Game extends JPanel{
@@ -38,7 +40,9 @@ public class Game extends JPanel{
 		});
 		setFocusable(true);
 		//Color c =new Color(100,0,0);
-		setBackground(new Color(0,102,0));
+		//setBackground(new Color(0,102,0));
+		setBackground(Color.green);
+		Sound.BACK.loop();
 	}
 
 	private void move() {
@@ -61,6 +65,8 @@ public class Game extends JPanel{
 	}
 	
 	public void gameOver() {
+		Sound.BACK.stop();
+		Sound.GAMEOVER.play();
 		JOptionPane.showMessageDialog(this, "Game Over", "Game Over", JOptionPane.YES_NO_OPTION);
 		System.exit(ABORT);
 	}
