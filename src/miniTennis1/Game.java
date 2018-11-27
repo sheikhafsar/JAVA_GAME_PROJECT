@@ -1,6 +1,8 @@
 //program to move shapes(Animation)
 package miniTennis1;
-
+	
+import java.awt.Color;
+import java.awt.Container;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -35,6 +37,8 @@ public class Game extends JPanel{
 			}
 		});
 		setFocusable(true);
+		//Color c =new Color(100,0,0);
+		setBackground(new Color(0,102,0));
 	}
 
 	private void move() {
@@ -48,8 +52,12 @@ public class Game extends JPanel{
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 				RenderingHints.VALUE_ANTIALIAS_ON);
+		g2d.setColor(Color.black);
 		ball.paint(g2d);
 		racquet.paint(g2d);
+		
+		
+		
 	}
 	
 	public void gameOver() {
@@ -65,8 +73,15 @@ public class Game extends JPanel{
 		Game game = new Game();
 		frame.add(game);
 		frame.setSize(300, 400);
+		
 		frame.setVisible(true);
+		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		//Container c = frame.getContentPane();
+		//c.setBackground(Color.green);
+		//frame.setBackground(Color.red);
+
 		
 		while (true) {
 			game.move();
