@@ -3,6 +3,7 @@ package miniTennis1;
 	
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -21,6 +22,12 @@ public class Game extends JPanel{
 	
 	Ball ball = new Ball(this);
 	Racquet racquet = new Racquet(this);
+	
+	int speed = 1;
+
+	private int getScore() {
+		return speed - 1;
+	}
 	
 	public Game() {
 		addKeyListener(new KeyListener() {
@@ -42,6 +49,7 @@ public class Game extends JPanel{
 		//Color c =new Color(100,0,0);
 		//setBackground(new Color(0,102,0));
 		setBackground(Color.green);
+		//setBackground(Color.red);
 		Sound.BACK.loop();
 	}
 
@@ -60,14 +68,18 @@ public class Game extends JPanel{
 		ball.paint(g2d);
 		racquet.paint(g2d);
 		
-		
+		g2d.setColor(Color.GRAY);
+		g2d.setFont(new Font("Verdana", Font.BOLD, 30));
+		g2d.drawString(String.valueOf(getScore()), 10, 30);
 		
 	}
 	
 	public void gameOver() {
 		Sound.BACK.stop();
 		Sound.GAMEOVER.play();
-		JOptionPane.showMessageDialog(this, "Game Over", "Game Over", JOptionPane.YES_NO_OPTION);
+		//JOptionPane.showMessageDialog(this, "Game Over", "Game Over", JOptionPane.YES_NO_OPTION);
+		JOptionPane.showMessageDialog(this, "your score is: " + getScore(),
+				"Game Over", JOptionPane.YES_NO_OPTION);
 		System.exit(ABORT);
 	}
 

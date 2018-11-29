@@ -34,10 +34,16 @@ public class Racquet {
 
 	public void keyPressed(KeyEvent e) {
 		Sound.KEYTONE.play();
-		if (e.getKeyCode() == KeyEvent.VK_LEFT)
-			xa = -1;
-		if (e.getKeyCode() == KeyEvent.VK_RIGHT)
-			xa = 1;
+		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+			//xa = -1;
+			xa = -game.speed;
+		}
+			
+		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+			//xa = 1;
+			xa = game.speed;
+		}
+			
 	}
 
 	public Rectangle getBounds() {

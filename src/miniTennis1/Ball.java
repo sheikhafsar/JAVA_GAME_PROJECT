@@ -22,8 +22,11 @@ public class Ball {
 		
 		boolean changeDirection = true;
 		
-		if (x + xa < 0)
-			xa = 1;
+		if (x + xa < 0) {
+			//xa = 1;
+			xa = game.speed;
+		}
+			
 		else if (x + xa > game.getWidth() - DIAMETER)
 			xa = -1;
 		else if (y + ya < 0)
@@ -31,8 +34,10 @@ public class Ball {
 		else if (y + ya > game.getHeight() - DIAMETER)
 			game.gameOver();
 		else if (collision()){
-			ya = -1;
+			//ya = -1;
+			ya = -game.speed;
 			y = game.racquet.getTopY() - DIAMETER;
+			game.speed++;
 		}
 		else 
 			changeDirection = false;
