@@ -3,22 +3,16 @@ package miniTennis1;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
-
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
 import java.awt.BorderLayout;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
+import java.awt.Color;
+
 import javax.swing.JTextPane;
+import java.awt.Font;
 
 public class Application implements ActionListener{
 	
@@ -32,19 +26,36 @@ public class Application implements ActionListener{
 	public void GUI() {
 		MenuFrame.getContentPane().setLayout(null);
 		JButton btnPlay = new JButton("Play");
+		btnPlay.setForeground(new Color(0, 0, 102));
+		btnPlay.setEnabled(false);
+		btnPlay.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnPlay.setToolTipText("Start Game");
+		btnPlay.setBackground(new Color(0, 255, 255));
 		btnPlay.setBounds(87, 79, 97, 25);
 		MenuFrame.getContentPane().add(btnPlay);
 		
 		JButton btnHighScore = new JButton("High Score");
+		btnHighScore.setForeground(new Color(0, 0, 102));
+		btnHighScore.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnHighScore.setToolTipText("Check Highest Score ");
+		btnHighScore.setBackground(new Color(0, 255, 255));
 		btnHighScore.setBounds(87, 133, 97, 25);
 		MenuFrame.getContentPane().add(btnHighScore);
 		
 		JButton btnExit = new JButton("Exit");
+		btnExit.setForeground(new Color(0, 0, 102));
+		btnExit.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnExit.setToolTipText("Wanna Quit?");
+		btnExit.setBackground(new Color(0, 255, 255));
 		btnExit.setBounds(87, 187, 97, 25);
 		MenuFrame.getContentPane().add(btnExit);
+		MenuFrame.getContentPane().setBackground(new Color(0, 0, 153));
+		MenuFrame.getContentPane().setForeground(new Color(0, 204, 255));
 		
 		
 		MenuFrame.setSize(300, 400);
+		
+		//MenuFrame.setBackground(Color.green);
 		
 		MenuFrame.setVisible(true);
 		
@@ -67,12 +78,16 @@ public class Application implements ActionListener{
 		    
 				scoreFrame.setSize(300, 400);
 				
+				scoreFrame.getContentPane().setBackground(new Color(0, 0, 153));
+				scoreFrame.getContentPane().setForeground(new Color(0, 204, 255));
+				
 				
 				//JTextArea tarea = new JTextArea(10, 10);
 				
 				 JLabel mylabel = new JLabel(); 
 				 JTextPane tp = new JTextPane();
-				 
+				 tp.setBackground(new Color(0, 255, 255));
+				
 			
 				try {
 			          BufferedReader input = new BufferedReader(new InputStreamReader(

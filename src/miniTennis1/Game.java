@@ -2,23 +2,18 @@
 package miniTennis1;
 	
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -92,9 +87,6 @@ public class Game extends JPanel{
 		 
 		FileWriter fileWriter;
 		try {
-			//fis = new FileInputStream("Score.txt");
-			//bis = new BufferedInputStream(fis);
-			//System.out.println("char: "+(char)bis.read());
 			
 			 BufferedReader inFile = new BufferedReader(new FileReader("Score.txt"));
 			
@@ -129,36 +121,9 @@ public class Game extends JPanel{
 		
 		
 		//JOptionPane.showMessageDialog(this, "Game Over", "Game Over", JOptionPane.YES_NO_OPTION);
-		JOptionPane.showMessageDialog(this, "Ohh, Your score is: " + getScore()+"\n Try Again.",
+		JOptionPane.showMessageDialog(this, "Ohh, Your score is: " + getScore()+"\n Play Again.",
 				"Game Over", JOptionPane.YES_NO_OPTION);
 		System.exit(ABORT);
 	}
-
-	
-/*	public static void main(String[] args) throws InterruptedException {
-		// TODO Auto-generated method stub
-		
-		JFrame frame = new JFrame("Mini Tennis");
-		Game game = new Game();
-		frame.add(game);
-		frame.setSize(300, 400);
-		
-		frame.setVisible(true);
-		
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		//Container c = frame.getContentPane();
-		//c.setBackground(Color.green);
-		//frame.setBackground(Color.red);
-
-		
-		while (true) {
-			game.move();
-			game.repaint();
-			Thread.sleep(10);
-		}
-
-	}
-*/
 
 }
